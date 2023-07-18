@@ -35,7 +35,7 @@ const Stores = ({ data }: Props) => {
               <span>Filter</span>
               <button
                 onClick={() => setToggleNav((prev) => !prev)}
-                className="border px-2 w-28 bg-white rounded"
+                className="border px-2 w-28 bg-white rounded text-gray-900"
               >
                 {catQuery ? catQuery : "All"}
               </button>

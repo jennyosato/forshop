@@ -35,7 +35,7 @@ const ProductCard = ({item}:any) => {
       <div className='h-44 p-2 overflow-hidden'>
         <Image src={urlFor(item.image).url()} alt={item.name} width={400} height={400} className='group-hover:scale-110 transition ease-in-out 1s  w-full h-full' />
       </div>
-      <div className=' p-2'>
+      <div className='text-gray-900 p-2'>
         <h2 className='text-xl font-semibold'>{item.name}</h2>
         <p className='flex items-center'><TbCurrencyNaira />{item.price}</p>
         <span className='text-xs italic text-gray-500'>Category: {item.category}</span>

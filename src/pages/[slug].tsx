@@ -72,7 +72,7 @@ const Item = ({ data, products } : Px) => {
   return (
     <div className="min-h-screen ">
       <div className="w-full bg-white py-6 px-2">
-        <h2 className="text-2xl font-semibold">{data.category}</h2>
+        <h2 className="text-2xl text-gray-900 font-semibold">{data.category}</h2>
         
       </div>
       <div className="flex flex-col md:flex-row mx-auto border h-full shadow-lg w-11/12 mt-8">
@@ -85,11 +85,11 @@ const Item = ({ data, products } : Px) => {
             className="w-full h-full border-8 "
           />
         </div>
-        <div className="w-full md:w-1/2 bg-white flex flex-col p-4 items-left">
+        <div className="w-full md:w-1/2 bg-white flex flex-col p-4 items-left text-gray-900">
           <h2 className="text-5xl font-semibold py-2 border-b">{data.name}</h2>
           <div className="flex items-center gap-1 p-1">
             <StarRating rating={rating} />{" "}
-            <span className="text-sm">
+            <span className="text-sm text-gray-900">
               ({data.reviews.length})reviews
             </span>{" "}
           </div>
@@ -144,7 +144,7 @@ const Item = ({ data, products } : Px) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-between w-11/12 py-4 mx-auto gap-4">
+      <div className="flex flex-col md:flex-row justify-between w-11/12 py-4 mx-auto gap-4 text-gray-900">
         <div className="w-full flex flex-col gap-2">
           <h2 className="text-xl font-semibold">Top Reviews</h2>
           {reviewList}
@@ -154,11 +154,11 @@ const Item = ({ data, products } : Px) => {
           <Rating id={data} />
         </div>
       </div>
-      <div className="w-10/12 mx-auto bg-white h-72 rounded shadow ">
+      <div className="w-11/12 mx-auto bg-white h-72 rounded shadow text-gray-900 ">
         <h2 className="text-3xl text-center font-bold py-4 px-2">
           Other Products in {data.category} category
         </h2>
-        <div className="relative overflow-x-hidden w-full h-full">
+        <div className="relative overflow-x-hidden w-full h-full py-4">
         <div className="tracks transition ease-in-out flex h-44 gap-4 p-4 justify-center mt-8 absolute whitespace-nowrap animate-marquee w-[150%] will-change-transform">{sameCategoryProduct}</div>
         </div>
         

@@ -25,8 +25,8 @@ const Cart = () => {
     
     <div className="flex flex-col md:flex-row gap-8 mt-8 ">
       <div className="bg-white w-full md:w-2/3 rounded-md shadow-sm  ">
-      <h2 className="text-2xl font-semibold p-3 border-b ">Your Items</h2>
-      {products.length < 1 ? <h2 className="absolute top-1/2 left-1/2">Your Cart is Empty</h2> : productList}
+      <h2 className="text-2xl font-semibold p-3 border-b text-gray-900 ">Your Items</h2>
+      {products.length < 1 ? <h2 className="absolute text-center text-gray-900">Your Cart is Empty</h2> : productList}
       </div>
 
       

@@ -16,7 +16,7 @@ const Favorite = ({closeWishlist}:any) => {
   
   const lists = favoriteLists.map((i:Product) => {
     return(
-        <div key={i.name} className="flex gap-2 border-b-4 p-2 shadow-lg border-gray-900">
+        <div key={i._id} className="flex gap-2 border-b-4 p-2 shadow-lg border-gray-900 text-gray-900">
             <Image src={urlFor(i.image).url()}  width={100}
         height={100} className=" w-1/2 md:w-1/4 h-44 object-cover" alt={i.name} />
         <div>
@@ -45,10 +45,10 @@ const Favorite = ({closeWishlist}:any) => {
        
        <div className="flex justify-between">
        <h2 className="text-2xl font-semibold">Wishlist</h2>
-       <span onClick={closeWishlist}><AiFillCloseSquare className="text-2xl"/></span>
+       <span onClick={closeWishlist}><AiFillCloseSquare className="text-2xl text-gray-900"/></span>
         </div> 
        
-        {favoriteLists.length > 0 ?lists: <div className="m-auto"><h2>Your Wishlist is empty</h2></div>}
+        {favoriteLists.length > 0 ?lists: <div className="m-auto"><h2 className="text-2xl text-gray-900">Your Wishlist is empty</h2></div>}
       </div>
     </div>
   )
