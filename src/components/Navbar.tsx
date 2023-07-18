@@ -50,7 +50,7 @@ const Navbar = () => {
           <li>
             <Link
               className="hover:font-bold px-2 font-semibold text-white"
-              href="/market"
+              href="/stores"
             >
               Store
             </Link>
