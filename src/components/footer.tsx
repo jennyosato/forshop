@@ -8,7 +8,7 @@ const Footer = () => {
   const router = useRouter()
   
   return (
-    <div className={router.pathname === '/stores'?'hidden':'text-white w-full h-60 bg-gray-950 flex flex-wrap justify-evenly px-4 py-4 mt-20 z-50'}>
+    <div className={router.pathname === '/stores'?'hidden':'text-white w-full h-60 bg-gray-900 flex flex-wrap justify-evenly px-4 py-4 mt-20 z-50'}>
       
       <div className=''>
         <h2 className='text-lg font-semibold text-white  '>Categories</h2>

@@ -28,13 +28,13 @@ const Navbar = () => {
   const cartValue = useSelector(selectProducts);
 
   return (
-    <header className="shadow-md flex justify-between bg-gray-800 py-2 px-4 fixed w-full z-50 gap-3">
+    <header className="shadow-md flex justify-between bg-gray-900 py-4 px-4 fixed w-full z-50 gap-3">
       <div className="text-2xl border-4 italic text-white ">ForStores</div>
 
       <nav
         className={
           toggleMenu
-            ? "flex absolute w-full left-0 top-12 bg-gray-800 justify-center "
+            ? "flex absolute w-full left-0 top-12 bg-gray-900 justify-center "
             : "hidden md:flex w-full md:w-1/2 justify-center items-center"
         }
       >

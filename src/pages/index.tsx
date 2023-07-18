@@ -74,7 +74,7 @@ export default function Home({ data }: Props) {
         </div>
       </div>
      
-      <h2 className="text-4xl font-bold px-4 text-center py-2 bg-white">Top deals</h2>
+      <h2 className="text-4xl font-bold px-4 text-center py-2 bg-white text-gray-900">Top deals</h2>
       <div className="w-10/12 m-auto grid grid-cols-fluids gap-4 my-4 ">
         {products}
       </div>
@@ -110,7 +110,7 @@ export default function Home({ data }: Props) {
 
       <div className="text-blue-950 h-72 m-4 bg-[url('/banner.jpg')] bg-center bg-cover bg-no-repeat bg-blend-overlay bg-white/50 flex flex-col justify-center items-center gap-2 shadow my-4 rounded-lg  ">
    <h2 className="text-xl font-semibold ">Get notified of our new product</h2>
-   <form>
+   
    <input
           type="email"
           placeholder="Enter email"
@@ -122,7 +122,7 @@ export default function Home({ data }: Props) {
             Join
           </button>
           </div>
-   </form>
+  
        
         
       </div>
