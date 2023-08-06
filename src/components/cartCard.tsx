@@ -30,7 +30,7 @@ const CartCard = ({ product }: any ) => {
         width={100}
         height={100}
       />
-      <div className="w-full">
+      <div className="w-full text-gray-900">
         <h2 className="text-lg font-semibold">{product.name}</h2>
         <div className="flex justify-between">
           <p className="flex items-center">
