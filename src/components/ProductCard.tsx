@@ -45,8 +45,8 @@ const ProductCard = ({item}:any) => {
       </div>
        </Link>
       <div className=' p-2'>
-      <button onClick={()=> AddToCart(item)} className='px-6 py-2 bg-gray-900 hover:bg-gray-950 hover:shadow-lg text-white font-semibold'>Add to Cart</button>
-      <span title='Add to Wishlist' className='absolute top-3 right-3 shadow-lg rounded-sm bg-white p-1' onClick={() => dispatch(addFavorite(item))}><BsHeart className=''/></span>
+      <button onClick={()=> AddToCart(item)} className='rounded-lg px-6 py-2 bg-gray-900 hover:bg-gray-950 hover:shadow-lg text-white font-semibold'>Add to Cart</button>
+      <span title='Add to Wishlist' className='absolute text-gray-900 top-3 right-3 shadow-lg rounded-sm bg-white p-1' onClick={() => dispatch(addFavorite(item))}><BsHeart className=''/></span>
       </div>
      
     </div>
