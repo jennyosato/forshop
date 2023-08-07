@@ -31,7 +31,7 @@ const Cart = () => {
 
       
      
-      <div className=" md:w-1/3 border bg-white rounded-md p-4 h-44 mx-4">
+      <div className=" md:w-1/3 border bg-white rounded-md p-4 h-44 mx-4 text-gray-900">
         <p className="border-b py-2 uppercase font-medium">Order Summary</p>
         <p className="flex items-center justify-between py-2">Subtotal: <span className="flex items-center text-lg font-semibold"><TbCurrencyNaira/>{total}</span> </p>
       

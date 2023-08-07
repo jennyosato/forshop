@@ -43,7 +43,7 @@ const Item = ({ data, products } : Px) => {
       <Link 
         href={product.slug.current}
         key={product._id}
-        className="h-full w-64 hover:scale-110 transition ease-in-out 1s"
+        className="h-full w-64 min-w-64 hover:scale-110 transition ease-in-out 1s border"
       >
         <Image
           src={urlFor(product.image).url()}
@@ -154,12 +154,12 @@ const Item = ({ data, products } : Px) => {
           <Rating id={data} />
         </div>
       </div>
-      <div className="w-11/12 mx-auto bg-white h-72 rounded shadow text-gray-900 ">
+      <div className="w-11/12 mx-auto bg-white h-80 rounded shadow text-gray-900 flex flex-col py-4 ">
         <h2 className="text-3xl text-center font-bold py-4 px-2">
           Other Products in {data.category} category
         </h2>
-        <div className="relative overflow-x-hidden w-full h-full py-4">
-        <div className="tracks transition ease-in-out flex h-44 gap-4 p-4 justify-center mt-8 absolute whitespace-nowrap animate-marquee w-[150%] will-change-transform">{sameCategoryProduct}</div>
+        <div className="relative overflow-x-hidden w-full h-full">
+        <div className="tracks transition ease-in-out flex items-center gap-3 h-44 p-4 mt-8 absolute whitespace-nowrap animate-marquee w-[150%] will-change-transform">{sameCategoryProduct}</div>
         </div>
         
       </div>

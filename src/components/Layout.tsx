@@ -9,7 +9,7 @@ const Layout = ({children}:{children:React.ReactNode}) => {
     <>
     <Navbar/>
     <NavLinks />
-    <div className='relative top-14'>
+    <div className='relative top-14 bottom-14 mb-40'>
     {children}
     </div>
     <Footer />

@@ -12,10 +12,10 @@ const NavLinks = () => {
         setToggle((prev) => !prev);
       };
   return (
-    <nav className='fixed bottom-0 bg-red-600 md:bottom-[100%] w-full md:top-4 left-0 justify-center z-50'
+    <nav className='fixed bottom-0 md:bottom-[100%] w-full md:top-3 left-0 justify-center z-50'
    
   >
-    <ul className="flex py-2 px-4 justify-center gap-2 bg-gray-900 md:bg-transparent w-full">
+    <ul className="flex p-4 justify-center gap-4 bg-gray-900 md:bg-transparent w-full">
       <li>
         <Link
           className="hover:font-bold px-2 font-semibold text-white flex flex-col items-center"
