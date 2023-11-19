@@ -38,7 +38,7 @@ function Rating({ id }: any) {
       setRating(0);
       setText('');
     } else {
-      setErr("Please sign In to leave a review");
+      setErr("!!Please sign In to leave a review");
     }
 
 
@@ -66,16 +66,12 @@ function Rating({ id }: any) {
   });
   return (
     <div className=" flex flex-col items-center gap-4 m-auto shadow bg-white p-4">
-      <p>{err}</p>
+      <p className="italic text-red-600 ">{err}</p>
       <div className="flex gap-2">{starRating}</div>
       <div className="flex flex-col items-center gap-2">
-        <textarea placeholder="Write your review" value={text} className="border w-full p-2 outline-none" cols={50} rows={5} onChange={(e) => setText(e.target.value)} />
+        <textarea placeholder="Write your review" value={text} className="border w-full p-2 outline-none" cols={50} rows={4} onChange={(e) => setText(e.target.value)} />
         <button className="px-6 py-2 rounded-sm text-white bg-gray-900" onClick={handleSubmit}>Submit</button>
       </div>
-
-
-
-
     </div>
 
   );

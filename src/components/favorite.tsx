@@ -45,7 +45,7 @@ const Favorite = ({closeWishlist}:any) => {
   })
   return (
     <div className="w-full fixed left-0 top-0 bg-black/50 flex justify-end">
-      <div className="md:w-1/3 w-2/3 bg-white h-screen overflow-y-auto relative p-4 flex flex-col gap-4">
+      <div className="md:w-1/3 w-3/4 bg-white h-screen overflow-y-auto relative p-4 flex flex-col gap-4">
        
        <div className="flex justify-between">
        <h2 className="text-2xl font-semibold text-gray-900">Wishlist</h2>

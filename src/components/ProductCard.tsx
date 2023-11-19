@@ -29,23 +29,22 @@ const ProductCard = ({item}:any) => {
     })
   }
   return (
-    <div className='flex flex-col rounded bg-white hover:shadow-lg group relative '>
+    <div className='flex flex-col rounded bg-white shadow-lg group relative '>
       <Link href={item.slug.current}> 
       
-      <div className='h-44 p-2 overflow-hidden'>
-        <Image src={urlFor(item.image).url()} alt={item.name} width={400} height={400} className='group-hover:scale-110 transition ease-in-out 1s  w-full h-full' />
+      <div className='h-44 relative p-2 overflow-hidden'>
+        <Image src={urlFor(item.image).url()} fill 
+        alt={item.name}
+         className='group-hover:scale-110 transition ease-in-out 1s object-cover' />
       </div>
       <div className='text-gray-900 p-2'>
-        <h2 className='text-xl font-semibold'>{item.name}</h2>
+        <h2 className='text-xl font-semibold group-hover:font-bold group-hover:text-lg'>{item.name}</h2>
         <p className='flex items-center'><TbCurrencyNaira />{item.price}</p>
-        <span className='text-xs italic text-gray-500'>Category: {item.category}</span>
-        
-       
-        
+        <span className='text-xs italic text-gray-500'>Category: {item.category}</span> 
       </div>
        </Link>
       <div className=' p-2'>
-      <button onClick={()=> AddToCart(item)} className='rounded-lg px-6 py-2 bg-gray-900 hover:bg-gray-950 hover:shadow-lg text-white font-semibold'>Add to Cart</button>
+      {/* <button onClick={()=> AddToCart(item)} className='rounded-lg px-6 py-2 bg-gray-900 hover:bg-gray-950 hover:shadow-lg text-white font-semibold'>Add to Cart</button> */}
       <span title='Add to Wishlist' className='absolute text-gray-900 top-3 right-3 shadow-lg rounded-sm bg-white p-1' onClick={() => dispatch(addFavorite(item))}><BsHeart className=''/></span>
       </div>
      

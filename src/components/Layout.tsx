@@ -8,10 +8,13 @@ const Layout = ({children}:{children:React.ReactNode}) => {
   return (
     <>
     <Navbar/>
-    <NavLinks />
+    <div className='fixed bottom-16 z-50 w-full sm:hidden'>
+      <NavLinks />
+    </div>
     <div className='relative top-14 bottom-14 mb-40'>
     {children}
     </div>
+  
     <Footer />
     
     

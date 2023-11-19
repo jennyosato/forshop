@@ -42,7 +42,7 @@ const Stores = ({ data }: Props) => {
             </div>
           </div>
 
-          <div className="w-full grid grid-cols-fluid gap-4">{products}</div>
+          <div className="w-full grid grid-cols-fluid sm:gap-6">{products}</div>
         </section>
       </div>
     </div>

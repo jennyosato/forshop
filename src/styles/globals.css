@@ -24,7 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    background: rgb(228, 228, 228);
+    background: rgba(228, 228, 228, 0.2);
 }
 
 
@@ -35,5 +35,5 @@ img{
   animation-play-state: paused;
 }
 button:hover{
-  transform: scaleX(1.02);
+  transform: scaleX(1.05);
 }
