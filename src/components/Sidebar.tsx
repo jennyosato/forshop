@@ -44,7 +44,7 @@ const Sidebar = (props: any) => {
         className="p-2 font-semibold text-blue-950 sm:px-2"
       >
         {list.map(link => (
-            <li key={link.title} className={`rounded-r-full hover:bg-blue-900/10 py-2 px-3 ${router.asPath == link.route && 'bg-blue-900/20 rounded-r-full border-l-2 border-greay-900'}`}>
+            <li key={link.title} className={`rounded-r-full hover:bg-blue-900/10 py-2 px-3 ${router.asPath == link.route && 'bg-blue-900/20 rounded-r-full border-l-2 border-gray-900'}`}>
                 <Link href={link.route} className=" leading-8 tracking-wide block">{link.title}</Link>
             </li>
         ) )}
