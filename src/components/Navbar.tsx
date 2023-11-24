@@ -4,9 +4,9 @@ import Link from "next/link";
 import { BsCart } from "react-icons/bs";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useSelector } from "react-redux";
-import { selectProducts } from "@/features/cart/CartSlice";
+import { selectProducts } from "@/features/cart/cartSlice";
 import Image from "next/image";
-import { SessionType } from "../../types";
+import { SessionType } from "../types";
 import NavLinks from "./NavLinks";
 
 const Navbar = () => {
@@ -18,9 +18,9 @@ const Navbar = () => {
     <header className="shadow-md flex justify-between items-center bg-gray-900 fixed p-4 w-full z-50 gap-3">
       <div className="text-2xl border-4 italic text-white">ForStores</div>
       <div className="hidden sm:flex">
-      <NavLinks />
+        <NavLinks />
       </div>
-      
+
       <div className="flex gap-4 font-bold items-center text-white ">
         <Link href="/Cart" className="flex items-center">
           <BsCart className="" />
@@ -31,15 +31,15 @@ const Navbar = () => {
 
         {session ? (
           <div className="flex items-center gap-2 group relative">
-           <div className="w-6 h-6 relative">
-           <Image
-              src={session?.user?.image}
-              fill
-              alt={session?.user?.name}
-              className="object-cover rounded-full"
-            />
-           </div>
-           
+            <div className="w-6 h-6 relative">
+              <Image
+                src={session?.user?.image}
+                fill
+                alt={session?.user?.name}
+                className="object-cover rounded-full"
+              />
+            </div>
+
             <p className="font-thin flex items-center gap-2">
               {firstName[0]} <MdKeyboardArrowDown />
             </p>
