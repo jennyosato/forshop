@@ -3,7 +3,7 @@ import { GetStaticProps } from "next";
 import { client } from "@/lib/client";
 import { useRouter } from "next/router";
 import ProductCard from "@/components/ProductCard";
-import { Product } from "../../types";
+import { Product } from "../types";
 import Sidebar from "@/components/Sidebar";
 
 interface Props {

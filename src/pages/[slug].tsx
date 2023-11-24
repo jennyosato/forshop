@@ -3,44 +3,40 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { client, urlFor } from "@/lib/client";
 import { TbCurrencyNaira } from "react-icons/tb";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/features/cart/CartSlice";
-import Rating from "@/components/rating";
+import { addToCart } from "@/features/cart/cartSlice";
+import Rating from "@/components/Rating";
 import Link from "next/link";
-import StarRating from "@/components/starRating";
-import toast from 'react-hot-toast'
+import StarRating from "@/components/StarRating";
+import toast from "react-hot-toast";
 import Image from "next/image";
-import { Product } from "../../types";
+import { Product } from "../types";
 
-
-interface Px{
-  data: Product,
-  products: [Product]
+interface Px {
+  data: Product;
+  products: [Product];
 }
 
-const Item = ({ data, products } : Px) => {
-
+const Item = ({ data, products }: Px) => {
   const rating = data.reviews
-        .reduce((init, item) => init + item.rating / data.reviews.length, 0)
-        .toFixed(1)
-    
+    .reduce((init, item) => init + item.rating / data.reviews.length, 0)
+    .toFixed(1);
 
   const dispatch = useDispatch();
-  const AddToCart = (i:Product) => {
+  const AddToCart = (i: Product) => {
     let x = { ...i, qty: 1 };
-    
+
     dispatch(addToCart(x));
     toast.success(`Added ${i.name} to cart`, {
-      position: 'top-right',
+      position: "top-right",
       iconTheme: {
-        primary: '#111827',
-        secondary: 'white'
-      }
-
-    })
+        primary: "#111827",
+        secondary: "white",
+      },
+    });
   };
-  const sameCategoryProduct = products.map((product:Product) => {
+  const sameCategoryProduct = products.map((product: Product) => {
     return (
-      <Link 
+      <Link
         href={product.slug.current}
         key={product._id}
         className="h-full w-64 min-w-64 hover:scale-110 transition ease-in-out 1s border"
@@ -72,8 +68,9 @@ const Item = ({ data, products } : Px) => {
   return (
     <div className="min-h-screen ">
       <div className="w-full bg-white py-6 px-2">
-        <h2 className="text-2xl text-gray-900 font-semibold">{data.category}</h2>
-        
+        <h2 className="text-2xl text-gray-900 font-semibold">
+          {data.category}
+        </h2>
       </div>
       <div className="flex flex-col md:flex-row mx-auto border h-full shadow-lg w-11/12 mt-8">
         <div className=" w-full md:w-1/2 h-full bg-white p-8">
@@ -159,9 +156,10 @@ const Item = ({ data, products } : Px) => {
           Other Products in {data.category} category
         </h2>
         <div className="relative overflow-x-hidden w-full h-full">
-        <div className="tracks transition ease-in-out flex items-center gap-3 h-44 p-4 mt-8 absolute whitespace-nowrap animate-marquee w-[150%] will-change-transform">{sameCategoryProduct}</div>
+          <div className="tracks transition ease-in-out flex items-center gap-3 h-44 p-4 mt-8 absolute whitespace-nowrap animate-marquee w-[150%] will-change-transform">
+            {sameCategoryProduct}
+          </div>
         </div>
-        
       </div>
     </div>
   );
@@ -171,15 +169,17 @@ export default Item;
 export const getStaticPaths: GetStaticPaths = async () => {
   const query = '*[_type in ["product", "deals"]]';
   const data = await client.fetch(query);
-  const item = data.map((i:Product) => ({
-    params: { slug: i.slug.current},
+  const item = data.map((i: Product) => ({
+    params: { slug: i.slug.current },
   }));
   return {
     paths: item,
     fallback: false,
   };
 };
-export const getStaticProps: GetStaticProps = async ({ params: { slug } }:any) => {
+export const getStaticProps: GetStaticProps = async ({
+  params: { slug },
+}: any) => {
   const query = `*[_type in ["product","deals"] && slug.current == '${slug}'][0]{
     _id,
     description,
@@ -197,7 +197,7 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }:any) =
   const categoryQuery = `*[_type=="product" && category == '${data.category}']`;
   const products = await client.fetch(categoryQuery);
   return {
-    props: { data, products }, revalidate: 60
+    props: { data, products },
+    revalidate: 60,
   };
 };
-
