@@ -6,14 +6,13 @@ import {
   increaseQty,
   decreaseQty,
   removeFromCart,
-} from "@/features/cart/CartSlice";
+} from "@/features/cart/cartSlice";
 import { TbCurrencyNaira } from "react-icons/tb";
 import { AiOutlineDelete } from "react-icons/ai";
 import toast from "react-hot-toast";
-import { Product } from "../../types";
+import { Product } from "../types";
 
-
-const CartCard = ({ product }: any ) => {
+const CartCard = ({ product }: any) => {
   const dispatch = useDispatch();
   const remove = (i: Product) => {
     dispatch(removeFromCart(i));
