@@ -11,22 +11,23 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import { Product } from "../types";
 
-interface Px {
+type ItemProps = {
   data: Product;
-  products: [Product];
-}
+  products: Product[];
+};
 
-const Item = ({ data, products }: Px) => {
-  const rating = data.reviews
-    .reduce((init, item) => init + item.rating / data.reviews.length, 0)
-    .toFixed(1);
+const Item = ({ data, products }: ItemProps) => {
+  const rating = data.reviews.reduce(
+    (start, review) => start + review.rating / data.reviews.length,
+    0
+  );
 
   const dispatch = useDispatch();
-  const AddToCart = (i: Product) => {
-    let x = { ...i, qty: 1 };
+  const AddToCart = (product: Product) => {
+    let orderItem = { ...product, quantity: 1 };
 
-    dispatch(addToCart(x));
-    toast.success(`Added ${i.name} to cart`, {
+    dispatch(addToCart(orderItem));
+    toast.success(`Added ${product.name} to cart`, {
       position: "top-right",
       iconTheme: {
         primary: "#111827",
@@ -148,7 +149,7 @@ const Item = ({ data, products }: Px) => {
         </div>
         <div className="bg-white w-full">
           <h2 className="text-xl font-semibold text-center">Write a review</h2>
-          <Rating id={data} />
+          <Rating id={data._id} />
         </div>
       </div>
       <div className="w-11/12 mx-auto bg-white h-80 rounded shadow text-gray-900 flex flex-col py-4 ">

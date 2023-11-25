@@ -1,31 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { ProductInventory } from "@/types";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState: any[] = [];
+const initialState: ProductInventory[] = [];
 const countSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
-      const inCart = state.find((item) => item.name === action.payload.name);
+    addToCart: (state, action: PayloadAction<ProductInventory>) => {
+      const inCart = state.find(
+        (product) => product.name === action.payload.name
+      );
       !inCart && state.push(action.payload);
     },
-    removeFromCart: (state, action) => {
-      return state.filter((item) => item.name !== action.payload.name);
+    removeFromCart: (state, action: PayloadAction<ProductInventory>) => {
+      return state.filter((product) => product.name !== action.payload.name);
     },
-    increaseQty: (state, action) => {
+    increaseQty: (state, action: PayloadAction<ProductInventory>) => {
       const { name } = action.payload;
-      const itemQty = state.find((item) => item.name === name);
-      if (itemQty) {
-        itemQty.qty += 1;
+      const product = state.find((product) => product.name === name);
+      if (product) {
+        product.quantity += 1;
       }
     },
-    decreaseQty: (state, action) => {
+    decreaseQty: (state, action: PayloadAction<ProductInventory>) => {
       const { name } = action.payload;
-      const itemQty = state.find((item) => item.name === name);
-      if (itemQty && itemQty.qty > 1) {
-        itemQty.qty -= 1;
+      const product = state.find((product) => product.name === name);
+      if (product && product.quantity > 1) {
+        product.quantity -= 1;
       } else {
-        return state.filter((item) => item.name !== itemQty.name);
+        return state.filter((item) => item.name !== product?.name);
       }
     },
   },

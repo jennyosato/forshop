@@ -6,10 +6,10 @@ import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import { SessionType } from "../types";
 
-function Rating({ id }: any) {
+function Rating({ id }: { id: string }) {
   const { data: session }: SessionType | any = useSession();
   const user = session?.user.name;
-  const { _id } = id;
+  // const { _id } = id;
   const [rating, setRating] = useState(0);
   const [text, setText] = useState("");
 
@@ -28,7 +28,7 @@ function Rating({ id }: any) {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (session) {
-      const res = await axios.post("/api/review", { rating, text, user, _id });
+      const res = await axios.post("/api/review", { rating, text, user, id });
       toast.success(res.data.message, {
         duration: 3000,
       });

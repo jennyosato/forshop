@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import Link from "next/link";
 import { GetStaticProps } from "next";
-import Topbanner from "@/components/Topbanner";
+import TopBanner from "@/components/TopBanner";
 import { client, urlFor } from "@/lib/client";
 import Layout from "@/components/Layout";
 import { TbCurrencyNaira } from "react-icons/tb";
@@ -11,11 +11,11 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import { Product } from "../types";
 
-interface Props {
-  data: [Product];
-}
+type HomeProps = {
+  data: Product[];
+};
 
-export default function Home({ data }: Props) {
+export default function Home({ data }: HomeProps) {
   const dispatch = useDispatch();
   const AddToCart = (i: Product) => {
     let x = { ...i, qty: 1 };
@@ -66,7 +66,7 @@ export default function Home({ data }: Props) {
 
   return (
     <>
-      <Topbanner />
+      <TopBanner />
 
       <div className="h-32 w-10/12 md:w-1/2 m-auto bg-white flex flex-col justify-center items-center gap-1 shadow my-4 rounded-lg ">
         <input

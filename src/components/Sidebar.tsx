@@ -29,7 +29,13 @@ const list = [
     route: "/stores?category=curtains",
   },
 ];
-const Sidebar = (props: any) => {
+
+type SidebarProps = {
+  toggle: boolean;
+  onClick: () => void;
+};
+
+const Sidebar = (props: SidebarProps) => {
   const router = useRouter();
   //    console.log(router)
   return (

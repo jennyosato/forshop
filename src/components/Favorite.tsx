@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Product } from "../types";
 
-const Favorite = ({ closeWishlist }: any) => {
+const Favorite = ({ closeWishlist }: { closeWishlist: () => void }) => {
   const dispatch = useDispatch();
   const favoriteLists = useSelector(favoriteList);
 

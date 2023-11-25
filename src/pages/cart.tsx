@@ -2,16 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectProducts } from "@/features/cart/cartSlice";
 import CartCard from "../components/CartCard";
-import { Product } from "../types";
+import { ProductInventory } from "../types";
 import { TbCurrencyNaira } from "react-icons/tb";
 
-interface Items extends Product {
-  qty: string;
-}
 const Cart = () => {
-  const products: Items[] = useSelector(selectProducts);
+  const products: ProductInventory[] = useSelector(selectProducts);
 
-  const productList = products.map((product: Product) => {
+  const productList = products.map((product) => {
     return (
       <div key={product._id}>
         <CartCard product={product} />
@@ -20,7 +17,7 @@ const Cart = () => {
   });
 
   const total = products.reduce(
-    (init, item) => init + parseInt(item.qty) * parseInt(item.price),
+    (start, product) => start + product.quantity * product.price,
     0
   );
   return (

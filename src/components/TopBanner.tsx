@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const Topbanner = () => {
+const TopBanner = () => {
   return (
     <>
       <div className="w-full h-96 bg-white/70 shadow-sm flex items-center">
@@ -25,4 +25,4 @@ const Topbanner = () => {
   );
 };
 
-export default Topbanner;
+export default TopBanner;
