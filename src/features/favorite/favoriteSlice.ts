@@ -1,17 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { Product } from "@/types";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState: any[] = [];
+const initialState: Product[] = [];
 
 const favoriteSlice = createSlice({
   name: "favorite",
   initialState,
   reducers: {
-    addFavorite: (state, action) => {
-      const isLiked = state.find((item) => item.name === action.payload.name);
+    addFavorite: (state, action: PayloadAction<Product>) => {
+      const isLiked = state.find(
+        (product) => product.name === action.payload.name
+      );
       !isLiked && state.push(action.payload);
     },
-    removeFavorite: (state, action) => {
-      return state.filter((item) => item.name !== action.payload.name);
+    removeFavorite: (state, action: PayloadAction<Product>) => {
+      return state.filter((product) => product.name !== action.payload.name);
     },
   },
 });

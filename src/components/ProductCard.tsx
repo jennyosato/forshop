@@ -10,13 +10,13 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { Product } from "../types";
 
-const ProductCard = ({ item }: any) => {
+const ProductCard = ({ item }: { item: Product }) => {
   const dispatch = useDispatch();
-  const AddToCart = (i: Product) => {
-    let x = { ...i, qty: 1 };
+  const AddToCart = (product: Product) => {
+    let productInventory = { ...product, quantity: 1 };
     // console.log(x)
-    dispatch(addToCart(x));
-    toast.success(`Added ${i.name} to cart`, {
+    dispatch(addToCart(productInventory));
+    toast.success(`Added ${product.name} to cart`, {
       iconTheme: {
         primary: "#111827",
         secondary: "white",

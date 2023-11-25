@@ -1,11 +1,11 @@
-export interface Product {
+export type Product = {
   _id: string;
   category: string;
   slug: {
     current: string;
   };
   color: string;
-  price: string;
+  price: number;
   description: string;
   image: {
     assets: {
@@ -14,19 +14,23 @@ export interface Product {
   };
   name: string;
   reviews: Review[];
-}
+};
 
-export interface Review {
+export type ProductInventory = Product & {
+  quantity: number;
+};
+
+export type Review = {
   _id: string;
   rating: number;
   text: string;
   user: string;
-}
-export interface SessionType {
+};
+export type SessionType = {
   expires: string;
   user: {
     email: string;
     image: string;
     name: string;
   };
-}
+};

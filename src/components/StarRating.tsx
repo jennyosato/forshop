@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import clsx from "clsx";
 
-const StarRating = ({ rating }: any) => {
+const StarRating = ({ rating }: { rating: number }) => {
   // console.log(rating)
   const star = Array(5).fill(0);
   const stars = star.map((_, index) => {

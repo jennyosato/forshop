@@ -10,11 +10,15 @@ import {
 import { TbCurrencyNaira } from "react-icons/tb";
 import { AiOutlineDelete } from "react-icons/ai";
 import toast from "react-hot-toast";
-import { Product } from "../types";
+import { ProductInventory } from "../types";
 
-const CartCard = ({ product }: any) => {
+type CartCardProps = {
+  product: ProductInventory;
+};
+
+const CartCard = ({ product }: CartCardProps) => {
   const dispatch = useDispatch();
-  const remove = (i: Product) => {
+  const remove = (i: ProductInventory) => {
     dispatch(removeFromCart(i));
     toast.error(`${i.name} has been removed from cart`, {
       position: "top-right",
@@ -38,7 +42,7 @@ const CartCard = ({ product }: any) => {
           </p>
           <p className="flex items-center">
             <TbCurrencyNaira />
-            {parseInt(product.price) * parseInt(product.qty)}
+            {product.price * product.quantity}
           </p>
         </div>
 
@@ -50,7 +54,7 @@ const CartCard = ({ product }: any) => {
             >
               -
             </button>
-            <span className="px-3">{product.qty}</span>
+            <span className="px-3">{product.quantity}</span>
             <button
               className="w-8 h-8 text-lg border px-2 py-1 bg-gray-900 text-white font-semibold rounded flex justify-center items-center"
               onClick={() => dispatch(increaseQty(product))}

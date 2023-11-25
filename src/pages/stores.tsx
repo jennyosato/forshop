@@ -6,11 +6,11 @@ import ProductCard from "@/components/ProductCard";
 import { Product } from "../types";
 import Sidebar from "@/components/Sidebar";
 
-interface Props {
-  data: [Product];
-}
+type StoresProps = {
+  data: Product[];
+};
 
-const Stores = ({ data }: Props) => {
+const Stores = ({ data }: StoresProps) => {
   const [toggleNav, setToggleNav] = useState(false);
   const router = useRouter();
   const catQuery = router.query.category;
@@ -69,5 +69,3 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { data },
   };
 };
-
-
