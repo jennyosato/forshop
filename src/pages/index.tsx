@@ -18,7 +18,7 @@ type HomeProps = {
 export default function Home({ data }: HomeProps) {
   const dispatch = useDispatch();
   const AddToCart = (i: Product) => {
-    let x = { ...i, qty: 1 };
+    let x = { ...i, quantity: 1 };
     dispatch(addToCart(x));
     toast.success(`Added ${i.name} to Cart`, {
       position: "top-right",
